@@ -8,6 +8,15 @@ versao: 221116
 #>
 
 
+##### FUNCOES
+function fnPastaTrabalho {
+    $nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
+    Set-Location $nomePath
+    $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + "\Data"
+    }
+
+    
+
 
 ##### PROCESSAMENTO INICIAL
 fnPastaTrabalho
@@ -16,17 +25,10 @@ fnPastaTrabalho
 $folderData = "\0020data"
 $folderCodePs1 = "\0010codePs1"
 
-$nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
-Set-Location $nomePath
-$pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + "\Data"
 
 
-##### FUNCOES
 
-function fnPastaTrabalho {
-$nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
-Set-Location $nomePath
-}
+
 
 
 # funcao fnBuscaSG(nmTab) - pendente construir
