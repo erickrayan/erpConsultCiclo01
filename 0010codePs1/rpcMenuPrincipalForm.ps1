@@ -1,3 +1,10 @@
+<#
+Nome: rpcMenuPrincipalForm.ps1
+Descricao: Criacao de objetos para o formulario do menu
+versao: 221128
+
+#>
+
 Add-Type -AssemblyName System.Windows.forms
 Add-Type -Assemblyname System.Drawing
 Add-Type -AssemblyName PresentationFramework #para janelas de erro ou sucesso

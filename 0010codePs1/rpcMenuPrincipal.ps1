@@ -1,14 +1,13 @@
 <#
 Nome: rpcMenuPrincipal.ps1
 Descricao: Script para controle do menu principal da aplicaco rpc
-versao: 221116
-
+versao: 221128
 
 #>
 
 $nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
 Set-Location $nomePath
-$pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + "\Data"
+$pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 
 # carrega e executa funcoes comuns ao script

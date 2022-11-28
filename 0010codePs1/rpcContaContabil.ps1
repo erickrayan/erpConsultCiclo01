@@ -1,6 +1,6 @@
 $nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
 Set-Location $nomePath
-$pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + "\Data"
+$pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 . .\rpcContaContabilForm.ps1 #carrega os comandos para a interface grafica
 
@@ -16,7 +16,7 @@ $botaoOk.Add_click({ #essa parte eh executada ao clicar no botao ok
     }
     else{
         $cont=0
-        foreach ($linha in Get-Content -path ($pathdata +"\tbSgConta.txt")){ #verifica se ja existe algum codigo de conta igual
+        foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){ #verifica se ja existe algum codigo de conta igual
             if(($linha -split " \| ")[1] -eq $textboxCodConta.text){
                 $cont++
                 break
@@ -28,28 +28,22 @@ $botaoOk.Add_click({ #essa parte eh executada ao clicar no botao ok
         else{ #se estiver tudo correto
 
             #preenche variaveis para adicionar no arquivo
-            $sgconta=(Get-Content -path ($pathdata + "\ixSgConta.txt"))
-            $cdConta=$textboxCodConta.Text
-            $dsConta=$textboxDescrConta.Text
-            
+            $sgconta=(fnBuscaSG "tbConta")
+
             if ($radiobuttonContaAtiva.Checked){ #se o status for ativo
-                [string]$stConta=01
+                $stConta="1"
             }
             else { #se o status for inativo
-                [string]$stConta=02
+                $stConta="2"
             }
 
-            Add-Content -Value "$sgconta | $cdConta | $dsConta | $stConta" -Path ($pathdata +"\tbSgConta.txt")
+            Add-Content -Value "$sgconta | $($textboxCodConta.Text) | $($textboxDescrConta.Text) | $stConta" -Path ($pathdata +"\tbConta.txt")
 
-            $ultimo=(Get-Content -path ($pathdata +"\ixSgConta.txt")) #variavel recebe conteudo do texto
-            [int]$ultimo=$ultimo #variavel eh convertida para int
-            $ultimo++ #e eh incrementada
-            [string]$ultimo=([string]$ultimo).PadLeft(4,'0') #variavel volta a ser string padronizada com zeros a esquerda
-            Clear-Content -path ($pathdata +"\ixSgConta.txt")
-            Add-Content -Value $ultimo -Path ($pathdata +"\ixSgConta.txt")
-            $labelSgConta.Text = "sgConta: " + $ultimo + ":"
+            fnIncrementaSG "tbConta"
 
             
+            $labelSgConta.Text = "sgConta: " + ([string](fnBuscaSG "tbConta")).PadLeft(4,'0') + ":"
+
             [System.Windows.MessageBox]::Show('Conta adicionada.')
         }
     }
@@ -108,7 +102,11 @@ $botaoSalvar.Add_click({
 
 
 
-$labelSgConta.Text = "sgConta: " + (Get-Content -path ($pathdata +"\ixSgConta.txt")) + ":" #preenche o label
+$labelSgConta.Text = "sgConta: " + ([string](fnBuscaSG "tbConta")).PadLeft(4,'0') + ":" #preenche o label
+
+
+
+
 
 foreach ($item in $data) {
     if($item.NomeCod -eq 'Conta' ){
