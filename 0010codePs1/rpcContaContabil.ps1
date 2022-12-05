@@ -1,3 +1,9 @@
+<#
+Nome: rpcContaContabil.ps1
+Descricao: Menu de insercao de contas contabeis
+versao: 221128
+
+#>
 $nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
 Set-Location $nomePath
 $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
@@ -7,6 +13,11 @@ $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 $data = @(
 [pscustomobject]@{NomeCod='Conta';TamanhoCod=9;TipoCod='Receita';PrefixCod='1'}
 [pscustomobject]@{NomeCod='Conta';TamanhoCod=9;TipoCod='Despesa';PrefixCod='2'}
+[pscustomobject]@{NomeCod='Conta';TamanhoCod=8;TipoCod='Investimento';PrefixCod='3'}
+[pscustomobject]@{NomeCod='Conta';TamanhoCod=8;TipoCod='Ativos';PrefixCod='4'}
+[pscustomobject]@{NomeCod='Conta';TamanhoCod=8;TipoCod='Passivos';PrefixCod='5'}
+[pscustomobject]@{NomeCod='Conta';TamanhoCod=8;TipoCod='Fluxo caixa receita';PrefixCod='6'}
+[pscustomobject]@{NomeCod='Conta';TamanhoCod=8;TipoCod='Fluxo caixa despesa';PrefixCod='7'}
 [pscustomobject]@{NomeCod='CentroCusto';TamanhoCod=7}
 )
 

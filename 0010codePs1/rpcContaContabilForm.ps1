@@ -1,3 +1,9 @@
+<#
+Nome: rpcMenuPrincipalForm.ps1
+Descricao: Criacao de objetos para o formulario de contas contabeis
+versao: 221128
+
+#>
 
 #Janela principal
 $formContabil = New-Object System.Windows.Forms.Form
@@ -68,6 +74,12 @@ $botaoSalvar.Size = New-Object System.Drawing.Size(100,20)
 $botaoSalvar.Text = "Gerar relatorio"
 $formContabil.Controls.Add($botaoSalvar)
 
+#botao alterar
+$botaoAlterar = New-Object System.Windows.Forms.Button #botão ok
+$botaoAlterar.Location = New-Object System.Drawing.Size(130,300)
+$botaoAlterar.Size = New-Object System.Drawing.Size(130,20)
+$botaoAlterar.Text = "Alterar uma conta"
+$formContabil.Controls.Add($botaoAlterar)
 
 #Label salvo
 $labelSalvo = New-Object System.Windows.Forms.Label
@@ -103,7 +115,7 @@ $groupboxStatusConta.Controls.AddRange(@($radiobuttonContaAtiva,$radiobuttonCont
 
 #Label Tipo Conta
 $labelTipoConta = New-Object System.Windows.Forms.Label
-$labelTipoConta.Text = "Digite o Tipo da conta:"
+$labelTipoConta.Text = "Selecione o Tipo da conta:"
 $labelTipoConta.Location =  New-Object System.Drawing.Size(20,15)
 $labelTipoConta.AutoSize = $true
 $formContabil.Controls.Add($labelTipoConta)

@@ -16,7 +16,7 @@ Add-Type -AssemblyName PresentationFramework #para janelas de erro ou sucesso
 #Janela principal menu
 $menu = New-Object System.Windows.Forms.Form
 #$menu.text = "Menu principal"
-$menu.size = New-Object System.Drawing.Size(350,200)
+$menu.size = New-Object System.Drawing.Size(350,240)
 $menu.StartPosition = "CenterScreen"
 
 
@@ -34,6 +34,13 @@ $inserirCContabeis.Location = New-Object System.Drawing.Size(20,50)
 $inserirCContabeis.Size = New-Object System.Drawing.Size(130,40)
 $inserirCContabeis.Text = "Cadastrar contas contabeis"
 $menu.Controls.Add($inserirCContabeis)
+
+#botão alterar conta contabil
+$alterarCContabeis = New-Object System.Windows.Forms.Button 
+$alterarCContabeis.Location = New-Object System.Drawing.Size(20,110)
+$alterarCContabeis.Size = New-Object System.Drawing.Size(130,40)
+$alterarCContabeis.Text = "Alterar contas contabeis"
+$menu.Controls.Add($alterarCContabeis)
 
 #botão inserir centro de custo
 $inserirCCusto = New-Object System.Windows.Forms.Button 

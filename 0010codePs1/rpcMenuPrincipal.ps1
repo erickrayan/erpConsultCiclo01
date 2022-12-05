@@ -19,13 +19,15 @@ $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 
 $inserirCContabeis.Add_click({
-    #[void]$formContabil.ShowDialog()
     . .\rpcContaContabil.ps1
 })
 
 $inserirCCusto.Add_click({
-    #[void]$formCCusto.ShowDialog()
    # . .\rpcCentroCusto.ps1
+})
+
+$alterarCContabeis.Add_click({
+    . .\rpcAterarContaContabil.ps1
 })
 
 [void]$menu.ShowDialog()
