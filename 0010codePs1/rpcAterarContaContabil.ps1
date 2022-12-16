@@ -17,7 +17,9 @@ class Conta { #objeto para adicionar na lista
     [string]$sgConta
     [string]$codConta
     [string]$descrConta
-    [string]$stConta;
+    [string]$stConta
+    [string]$display; #variavel estetica
+
  }
 
 $listboxFormAlterarConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao da listbox
@@ -76,9 +78,16 @@ $textboxFormAlterarCodConta.Add_TextChanged({ #evento acionado toda vez que a ca
 foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
     
     #Adiciona cada linha do txt como um objeto da lista
-    $item= ([Conta]@{sgConta=(($linha -split " \| ")[0]);codConta=(($linha -split " \| ")[1]);descrConta=(($linha -split " \| ")[2]);stConta=(($linha -split " \| ")[3])})
+    $item= ([Conta]@{
+        sgConta=    (($linha -split " \| ")[0]);
+        codConta=   (($linha -split " \| ")[1]);
+        descrConta= (($linha -split " \| ")[2]);
+        stConta=    (($linha -split " \| ")[3]);
+        display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+
+    })
 
     [void]$listboxFormAlterarConta.Items.Add($item)
 }
-$listboxFormAlterarConta.DisplayMember = "codConta"
+$listboxFormAlterarConta.DisplayMember = "display"
 [void]$formAlterarContabil.ShowDialog()

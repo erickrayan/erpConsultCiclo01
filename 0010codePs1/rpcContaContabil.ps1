@@ -99,9 +99,6 @@ $listboxTipoConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao da list
 })
 
 
-
-$listboxTipoConta.DisplayMember = "TipoCod"
-
 $botaoSalvar.Add_click({
     if ($openFileDialog.ShowDialog() -eq "OK"){
         $labelSalvo.Text = $OpenFileDialog.FileName #remover essa linha
@@ -111,18 +108,20 @@ $botaoSalvar.Add_click({
     
 })
 
-
+if (-not (Test-Path -path ($pathdata +"\tbConta.txt") -PathType Leaf)){ #Caso não exista, arquivo é criado
+    set-Content -Value "sgConta| cdConta | dsConta| stConta" -Path ($pathdata +"\tbConta.txt")
+    [System.Windows.MessageBox]::Show('Arquivo tbConta.txt nao existia e, portanto, foi criado.')
+}
 
 $labelSgConta.Text = "sgConta: " + ([string](fnBuscaSG "tbConta")).PadLeft(4,'0') + ":" #preenche o label
 
-
-
-
+$listboxTipoConta.DisplayMember = "TipoCod"
 
 foreach ($item in $data) {
     if($item.NomeCod -eq 'Conta' ){
         [void]$listboxTipoConta.Items.Add($item)
     }
 }
+
 
 [void]$formContabil.ShowDialog()
