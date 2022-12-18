@@ -74,8 +74,10 @@ $textboxFormAlterarCodConta.Add_TextChanged({ #evento acionado toda vez que a ca
 
 
 
-
+$counter=0
 foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
+    
+    if($counter++ -eq 0){continue} #pula a primeira iteracao
     
     #Adiciona cada linha do txt como um objeto da lista
     $item= ([Conta]@{
@@ -89,5 +91,12 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
 
     [void]$listboxFormAlterarConta.Items.Add($item)
 }
+
 $listboxFormAlterarConta.DisplayMember = "display"
+
+if (-not (Test-Path -path ($pathdata +"\tbConta.txt") -PathType Leaf)){ #Caso não exista, arquivo é criado
+    set-Content -Value "sgConta| cdConta | dsConta| stConta" -Path ($pathdata +"\tbConta.txt")
+    [System.Windows.MessageBox]::Show('Arquivo tbConta.txt nao existia e, portanto, foi criado.')
+}
+
 [void]$formAlterarContabil.ShowDialog()
