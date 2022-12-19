@@ -25,7 +25,7 @@ class Conta { #objeto para adicionar na lista
 $listboxFormAlterarConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao da listbox
 
     #ativa os elementos de entrada
-    $labelFormAlterarConta.Enabled =        $true
+    $labelFormAlterarConta.Enabled =          $true
     $labelFormAlterarCodConta.Enabled =       $true
     $labelFormAlterarDescrConta.Enabled =     $true
     $textboxFormAlterarCodConta.Enabled =     $true
