@@ -70,14 +70,18 @@ $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 
 
+function CriaArquivo($nmTxt){ #Cria arquivos txt na pasta data, caso nao existam
 
+    if ($nmTxt -eq "tbSG.txt")   {$cabecalho="sgSurroGate | cdCampoSG | nmTab | vlProximoSG"}
+elseif ($nmTxt -eq "tbConta.txt"){$cabecalho="sgConta| cdConta | dsConta| stConta"}
+else {$cabecalho="Erro na chamada da funcao"}
 
+if (-not (Test-Path -path ($pathdata + "\" + $nmTxt) -PathType Leaf)){ #Caso nao exista, arquivo eh criado
+    set-Content -Value $cabecalho -Path ($pathdata + "\" + $nmTxt)
+    [System.Windows.MessageBox]::Show("Arquivo $nmTxt nao existia e, portanto, foi criado.")
+}
 
-
-# funcao fnBuscaSG(nmTab) - pendente construir
-
-# funcao fnIncrementaSG(nmTab) - pendente construir
-
+}
 
 ##### USO DAS VARIAVEIS
 

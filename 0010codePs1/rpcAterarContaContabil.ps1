@@ -94,9 +94,7 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
 
 $listboxFormAlterarConta.DisplayMember = "display"
 
-if (-not (Test-Path -path ($pathdata +"\tbConta.txt") -PathType Leaf)){ #Caso não exista, arquivo é criado
-    set-Content -Value "sgConta| cdConta | dsConta| stConta" -Path ($pathdata +"\tbConta.txt")
-    [System.Windows.MessageBox]::Show('Arquivo tbConta.txt nao existia e, portanto, foi criado.')
-}
+criaArquivo "tbConta.txt"
+
 
 [void]$formAlterarContabil.ShowDialog()

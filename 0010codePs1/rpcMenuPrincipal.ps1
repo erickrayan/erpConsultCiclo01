@@ -30,10 +30,7 @@ $alterarCContabeis.Add_click({
     . .\rpcAterarContaContabil.ps1
 })
 
-if (-not (Test-Path -path ($pathdata +"\tbSG.txt") -PathType Leaf)){ #Caso não exista, arquivo é criado
-    set-Content -Value "sgSurroGate | cdCampoSG | nmTab | vlProximoSG" -Path ($pathdata +"\tbSG.txt")
-    [System.Windows.MessageBox]::Show('Arquivo tbSG.txt nao existia e, portanto, foi criado.')
-}
+criaArquivo "tbSG.txt"
 
 
 
