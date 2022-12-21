@@ -18,20 +18,18 @@ $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 
 
-$inserirCContabeis.Add_click({
-    . .\rpcContaContabil.ps1
-})
-
-$inserirCCusto.Add_click({
+$CCusto.Add_click({
    # . .\rpcCentroCusto.ps1
 })
 
-$alterarCContabeis.Add_click({
-    . .\rpcAterarContaContabil.ps1
+$CContabeis.Add_click({
+    $menu.Dispose()
+    #.\rpcAterarContaContabil.ps1
+    . .\rpcMenuContabil.ps1
 })
 
 criaArquivo "tbSG.txt"
-
+criaArquivo "tbConta.txt"
 
 
 

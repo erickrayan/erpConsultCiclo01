@@ -45,12 +45,12 @@ $textboxFormAlterarDescrConta.Size = New-Object System.Drawing.Size(286,20)
 $textboxFormAlterarDescrConta.Enabled = $false
 $formAlterarContabil.Controls.Add($textboxFormAlterarDescrConta)
 
-#botao cancelar 
+#botao voltar
 $botaoFormAlterarCancelar = New-Object System.Windows.Forms.Button 
 $botaoFormAlterarCancelar.Location = New-Object System.Drawing.Size(130,390)
 $botaoFormAlterarCancelar.Size = New-Object System.Drawing.Size(100,20)
-$botaoFormAlterarCancelar.Text = "Fechar"
-$botaoFormAlterarCancelar.Add_Click({$formAlterarContabil.Tag = $formAlterarContabil.close()}) 
+$botaoFormAlterarCancelar.Text = "Voltar"
+#$botaoFormAlterarCancelar.Add_Click({$formAlterarContabil.Tag = $formAlterarContabil.close()}) 
 $formAlterarContabil.Controls.Add($botaoFormAlterarCancelar)
 
 #botao ok

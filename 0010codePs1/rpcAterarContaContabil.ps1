@@ -10,7 +10,7 @@ Set-Location $nomePath
 $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 . .\rpcAterarContaContabilForm.ps1 #carrega os comandos para a interface grafica
-
+. .\rpcCommon.ps1 
 
 
 class Conta { #objeto para adicionar na lista
@@ -72,6 +72,11 @@ $textboxFormAlterarCodConta.Add_TextChanged({ #evento acionado toda vez que a ca
     }
 })
 
+$botaoFormAlterarCancelar.Add_Click({
+    $formAlterarContabil.Dispose()
+    . .\rpcMenuContabil.ps1
+}) 
+
 
 
 $counter=0
@@ -94,7 +99,7 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
 
 $listboxFormAlterarConta.DisplayMember = "display"
 
-criaArquivo "tbConta.txt"
+
 
 
 [void]$formAlterarContabil.ShowDialog()

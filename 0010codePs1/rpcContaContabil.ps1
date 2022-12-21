@@ -9,6 +9,7 @@ Set-Location $nomePath
 $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 . .\rpcContaContabilForm.ps1 #carrega os comandos para a interface grafica
+. .\rpcCommon.ps1 
 
 $data = @(
 [pscustomobject]@{NomeCod='Conta';TamanhoCod=9;TipoCod='Receita';PrefixCod='1'}
@@ -108,7 +109,12 @@ $botaoSalvar.Add_click({
     
 })
 
-criaArquivo "tbConta.txt"
+$botaoCancelar.Add_Click({
+    $formContabil.Dispose()
+    . .\rpcMenuContabil.ps1
+}) 
+
+
 
 $labelSgConta.Text = "sgConta: " + ([string](fnBuscaSG "tbConta")).PadLeft(4,'0') + ":" #preenche o label
 

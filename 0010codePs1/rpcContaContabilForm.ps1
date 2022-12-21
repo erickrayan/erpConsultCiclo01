@@ -56,8 +56,7 @@ $formContabil.Controls.Add($textboxDescrConta)
 $botaoCancelar = New-Object System.Windows.Forms.Button 
 $botaoCancelar.Location = New-Object System.Drawing.Size(130,390)
 $botaoCancelar.Size = New-Object System.Drawing.Size(100,20)
-$botaoCancelar.Text = "Fechar"
-$botaoCancelar.Add_Click({$formContabil.Tag = $formContabil.close()}) 
+$botaoCancelar.Text = "Voltar"
 $formContabil.Controls.Add($botaoCancelar)
 
 #botao ok

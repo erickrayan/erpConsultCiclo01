@@ -29,25 +29,22 @@ $mLabel.AutoSize = $true
 $menu.Controls.Add($mLabel)
 
 #botão inserir conta contabil
-$inserirCContabeis = New-Object System.Windows.Forms.Button 
-$inserirCContabeis.Location = New-Object System.Drawing.Size(20,50)
-$inserirCContabeis.Size = New-Object System.Drawing.Size(130,40)
-$inserirCContabeis.Text = "Cadastrar contas contabeis"
-$menu.Controls.Add($inserirCContabeis)
+$CContabeis = New-Object System.Windows.Forms.Button 
+$CContabeis.Location = New-Object System.Drawing.Size(20,50)
+$CContabeis.Size = New-Object System.Drawing.Size(130,40)
+$CContabeis.Text = "Contas contabeis"
+$menu.Controls.Add($CContabeis)
 
-#botão alterar conta contabil
-$alterarCContabeis = New-Object System.Windows.Forms.Button 
-$alterarCContabeis.Location = New-Object System.Drawing.Size(20,110)
-$alterarCContabeis.Size = New-Object System.Drawing.Size(130,40)
-$alterarCContabeis.Text = "Alterar contas contabeis"
-$menu.Controls.Add($alterarCContabeis)
+
 
 #botão inserir centro de custo
-$inserirCCusto = New-Object System.Windows.Forms.Button 
-$inserirCCusto.Location = New-Object System.Drawing.Size(180,50)
-$inserirCCusto.Size = New-Object System.Drawing.Size(130,40)
-$inserirCCusto.Text = "Cadastrar centros de custo"
-$menu.Controls.Add($inserirCCusto)
+$CCusto = New-Object System.Windows.Forms.Button 
+$CCusto.Location = New-Object System.Drawing.Size(180,50)
+$CCusto.Size = New-Object System.Drawing.Size(130,40)
+$CCusto.Text = "Centros de custo"
+$menu.Controls.Add($CCusto)
+
+
 
 
 
