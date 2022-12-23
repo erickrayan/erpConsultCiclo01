@@ -44,7 +44,16 @@ $CCusto.Size = New-Object System.Drawing.Size(130,40)
 $CCusto.Text = "Centros de custo"
 $menu.Controls.Add($CCusto)
 
-
+#botao fechar
+$botaoMenuVoltar = New-Object System.Windows.Forms.Button 
+$botaoMenuVoltar.Location = New-Object System.Drawing.Size(210,120)
+$botaoMenuVoltar.Size = New-Object System.Drawing.Size(100,20)
+$botaoMenuVoltar.Text = "Fechar"
+#$botaoFormAlterarCancelar.Add_Click({$formAlterarContabil.Tag = $formAlterarContabil.close()}) 
+$botaoMenuVoltar.Add_Click({
+    $menu.Dispose()
+}) 
+$menu.Controls.Add($botaoMenuVoltar)
 
 
 
