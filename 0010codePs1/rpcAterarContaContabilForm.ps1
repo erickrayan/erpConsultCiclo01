@@ -84,7 +84,6 @@ $radiobuttonFormAlterarContaAtiva.Text = "Ativo"
 $radiobuttonExibirSomenteAtivas = New-Object System.Windows.Forms.RadioButton
 $radiobuttonExibirSomenteAtivas.Location = '11,20'
 $radiobuttonExibirSomenteAtivas.size = '99,20'
-$radiobuttonExibirSomenteAtivas.Checked = $true 
 $radiobuttonExibirSomenteAtivas.Text = "Contas ativas"
 
 $radiobuttonFormAlterarContaInativa = New-Object System.Windows.Forms.RadioButton

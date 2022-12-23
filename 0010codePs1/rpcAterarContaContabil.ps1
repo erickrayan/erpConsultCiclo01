@@ -77,6 +77,46 @@ $botaoFormAlterarCancelar.Add_Click({
     . .\rpcMenuContabil.ps1
 }) 
 
+$radiobuttonExibirSomenteAtivas.add_CheckedChanged({
+    if ($radiobuttonExibirSomenteAtivas.Checked -eq $true ){  
+    
+        $listboxFormAlterarConta.Items.Clear()
+        
+        foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
+            if(($linha -split " \| ")[3] -eq "1"){
+                #Adiciona cada linha do txt como um objeto da lista
+                $item= ([Conta]@{
+                sgConta=    (($linha -split " \| ")[0]);
+                codConta=   (($linha -split " \| ")[1]);
+                descrConta= (($linha -split " \| ")[2]);
+                stConta=    (($linha -split " \| ")[3]);
+                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+                })
+                [void]$listboxFormAlterarConta.Items.Add($item)
+            }
+        }
+    }
+})
+
+$radiobuttonExibirSomenteInativas.add_CheckedChanged({
+    if ($radiobuttonExibirSomenteInativas.Checked -eq $true ){  
+        $listboxFormAlterarConta.Items.Clear()
+        foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
+            if(($linha -split " \| ")[3] -eq "2"){
+                #Adiciona cada linha do txt como um objeto da lista
+                $item= ([Conta]@{
+                sgConta=    (($linha -split " \| ")[0]);
+                codConta=   (($linha -split " \| ")[1]);
+                descrConta= (($linha -split " \| ")[2]);
+                stConta=    (($linha -split " \| ")[3]);
+                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+                })
+                [void]$listboxFormAlterarConta.Items.Add($item)
+            }
+        }
+    }
+})
+
 
 
 $counter=0
@@ -91,7 +131,6 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
         descrConta= (($linha -split " \| ")[2]);
         stConta=    (($linha -split " \| ")[3]);
         display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
-
     })
 
     [void]$listboxFormAlterarConta.Items.Add($item)
