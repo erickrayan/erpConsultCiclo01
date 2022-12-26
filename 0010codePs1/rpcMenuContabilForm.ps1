@@ -22,14 +22,14 @@ $mContabilLabel.Location =  New-Object System.Drawing.Size(20,15)
 $mContabilLabel.AutoSize = $true
 $menuContabil.Controls.Add($mContabilLabel)
 
-#botão inserir conta contabil
+#botao inserir conta contabil
 $inserirCContabeis = New-Object System.Windows.Forms.Button 
 $inserirCContabeis.Location = New-Object System.Drawing.Size(20,50)
 $inserirCContabeis.Size = New-Object System.Drawing.Size(130,40)
 $inserirCContabeis.Text = "Cadastrar contas contabeis"
 $menuContabil.Controls.Add($inserirCContabeis)
 
-#botão alterar conta contabil
+#botao alterar conta contabil
 $alterarCContabeis = New-Object System.Windows.Forms.Button 
 $alterarCContabeis.Location = New-Object System.Drawing.Size(180,50)
 $alterarCContabeis.Size = New-Object System.Drawing.Size(130,40)

@@ -1,6 +1,6 @@
 <#
 Nome: rpcAterarContaContabil.ps1
-Descricao: Menu de alteração de contas contabeis
+Descricao: Menu de alteracao de contas contabeis
 versao: 221128
 
 #>
@@ -90,7 +90,7 @@ $radiobuttonExibirSomenteAtivas.add_CheckedChanged({
                 codConta=   (($linha -split " \| ")[1]);
                 descrConta= (($linha -split " \| ")[2]);
                 stConta=    (($linha -split " \| ")[3]);
-                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variavel estetica
                 })
                 [void]$listboxFormAlterarConta.Items.Add($item)
             }
@@ -109,7 +109,7 @@ $radiobuttonExibirSomenteInativas.add_CheckedChanged({
                 codConta=   (($linha -split " \| ")[1]);
                 descrConta= (($linha -split " \| ")[2]);
                 stConta=    (($linha -split " \| ")[3]);
-                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+                display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variavel estetica
                 })
                 [void]$listboxFormAlterarConta.Items.Add($item)
             }
@@ -130,7 +130,7 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
         codConta=   (($linha -split " \| ")[1]);
         descrConta= (($linha -split " \| ")[2]);
         stConta=    (($linha -split " \| ")[3]);
-        display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variável estética
+        display=    (($linha -split " \| ")[1] + "    " + ($linha -split " \| ")[2]) #variavel estetica
     })
 
     [void]$listboxFormAlterarConta.Items.Add($item)

@@ -60,25 +60,20 @@ $botaoCancelar.Text = "Voltar"
 $formContabil.Controls.Add($botaoCancelar)
 
 #botao ok
-$botaoOk = New-Object System.Windows.Forms.Button #botão ok
+$botaoOk = New-Object System.Windows.Forms.Button #botao ok
 $botaoOk.Location = New-Object System.Drawing.Size(20,390)
 $botaoOk.Size = New-Object System.Drawing.Size(100,20)
 $botaoOk.Text = "Ok"
 $formContabil.Controls.Add($botaoOk)
 
 #botao salvar
-$botaoSalvar = New-Object System.Windows.Forms.Button #botão ok
+$botaoSalvar = New-Object System.Windows.Forms.Button #botao ok
 $botaoSalvar.Location = New-Object System.Drawing.Size(20,300)
 $botaoSalvar.Size = New-Object System.Drawing.Size(100,20)
 $botaoSalvar.Text = "Gerar relatorio"
 $formContabil.Controls.Add($botaoSalvar)
 
-#botao alterar
-$botaoAlterar = New-Object System.Windows.Forms.Button #botão ok
-$botaoAlterar.Location = New-Object System.Drawing.Size(130,300)
-$botaoAlterar.Size = New-Object System.Drawing.Size(130,20)
-$botaoAlterar.Text = "Alterar uma conta"
-$formContabil.Controls.Add($botaoAlterar)
+
 
 #Label salvo
 $labelSalvo = New-Object System.Windows.Forms.Label

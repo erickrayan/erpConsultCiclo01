@@ -1,6 +1,6 @@
 <#
 Nome: rpcAterarContaContabilForm.ps1
-Descricao: Criacao de objetos para o formulario de alteração de contas contabeis
+Descricao: Criacao de objetos para o formulario de alteracao de contas contabeis
 versao: 221204
 
 #>
@@ -54,7 +54,7 @@ $botaoFormAlterarCancelar.Text = "Voltar"
 $formAlterarContabil.Controls.Add($botaoFormAlterarCancelar)
 
 #botao ok
-$botaoFormAlterarOk = New-Object System.Windows.Forms.Button #botão ok
+$botaoFormAlterarOk = New-Object System.Windows.Forms.Button #botao ok
 $botaoFormAlterarOk.Location = New-Object System.Drawing.Size(20,390)
 $botaoFormAlterarOk.Size = New-Object System.Drawing.Size(100,20)
 $botaoFormAlterarOk.Text = "Salvar"

@@ -28,7 +28,7 @@ $mLabel.Location =  New-Object System.Drawing.Size(20,15)
 $mLabel.AutoSize = $true
 $menu.Controls.Add($mLabel)
 
-#botão inserir conta contabil
+#botao inserir conta contabil
 $CContabeis = New-Object System.Windows.Forms.Button 
 $CContabeis.Location = New-Object System.Drawing.Size(20,50)
 $CContabeis.Size = New-Object System.Drawing.Size(130,40)
@@ -37,7 +37,7 @@ $menu.Controls.Add($CContabeis)
 
 
 
-#botão inserir centro de custo
+#botao inserir centro de custo
 $CCusto = New-Object System.Windows.Forms.Button 
 $CCusto.Location = New-Object System.Drawing.Size(180,50)
 $CCusto.Size = New-Object System.Drawing.Size(130,40)

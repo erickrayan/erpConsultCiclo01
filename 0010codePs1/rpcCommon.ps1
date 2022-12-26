@@ -21,7 +21,7 @@ function fnBuscaSG($nmTab){
             return ($linha -split " \| ")[3]
         }
     }
-    return "tabela não encontrada"
+    return "tabela nao encontrada"
 
 }
 
@@ -38,7 +38,7 @@ function fnIncrementaSG($nmTab){
            $proximo = [int](($text[$cont]) -split " \| ")[3] #variavel recebe o ultimo valor da linha encontrada
            $proximo++ #e eh incrementada
 
-           $novaLinha+= $proximo #agora nova linha já com o valor incrementado
+           $novaLinha+= $proximo #agora nova linha ja com o valor incrementado
 
            $text[$cont]=$novaLinha #inserida a nova linha no array
 
