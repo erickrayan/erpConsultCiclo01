@@ -138,10 +138,12 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
 }
 
 $botaoFormAlterarOk.Add_Click({ #botao salvar
-    if("" -eq $textboxFormAlterarDescrConta.Text){
-        [System.Windows.MessageBox]::Show("A descricao nao pode estar vazia.")
-        
 
+    if($listboxFormAlterarConta.SelectedIndex -eq -1){
+        [System.Windows.MessageBox]::Show("Selecione uma conta.")
+    }
+    elseif("" -eq $textboxFormAlterarDescrConta.Text){
+        [System.Windows.MessageBox]::Show("A descricao nao pode estar vazia.")
     }
     else{
 
