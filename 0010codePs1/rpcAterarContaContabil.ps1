@@ -1,7 +1,7 @@
 <#
 Nome: rpcAterarContaContabil.ps1
 Descricao: Menu de alteracao de contas contabeis
-versao: 221128
+versao: 221227
 
 #>
 
@@ -9,8 +9,9 @@ $nomePath = (split-path (Get-Item $PSCommandPath).Fullname)
 Set-Location $nomePath
 $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
-. .\rpcAterarContaContabilForm.ps1 #carrega os comandos para a interface grafica
 . .\rpcCommon.ps1 
+. .\rpcAterarContaContabilForm.ps1 #carrega os comandos para a interface grafica
+
 
 
 class Conta { #objeto para adicionar na lista
@@ -28,7 +29,7 @@ $listboxFormAlterarConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao 
     $labelFormAlterarConta.Enabled =          $true
     $labelFormAlterarCodConta.Enabled =       $true
     $labelFormAlterarDescrConta.Enabled =     $true
-    $textboxFormAlterarCodConta.Enabled =     $true
+    #$textboxFormAlterarCodConta.Enabled =     $true
     $textboxFormAlterarDescrConta.Enabled =   $true
     $groupboxFormAlterarStatusConta.Enabled = $true
 
@@ -135,6 +136,30 @@ foreach ($linha in Get-Content -path ($pathdata +"\tbConta.txt")){
 
     [void]$listboxFormAlterarConta.Items.Add($item)
 }
+
+$botaoFormAlterarOk.Add_Click({ #botao salvar
+    if("" -eq $textboxFormAlterarDescrConta.Text){
+        [System.Windows.MessageBox]::Show("A descricao nao pode estar vazia.")
+        
+
+    }
+    else{
+
+        if ($radiobuttonFormAlterarContaAtiva.Checked -eq $true) {$novoStatus="1"} else {$novoStatus="2"}
+
+        $itemTemp = $listboxFormAlterarConta.SelectedItem #variavel para melhorar legibilidade das linhas abaixo
+        $novaLinha = $itemTemp.sgConta + " | " + $itemTemp.codConta + " | " + $textboxFormAlterarDescrConta.Text  + " | " + $novoStatus
+       
+        $text=Get-Content -path ($pathData + "\tbConta.txt") #variavel recebe todo o conteudo do texto em forma de array
+        $text[$itemTemp.sgConta]=$novaLinha #inserida a nova linha no array
+        Set-Content -Value $text -Path ($pathData + "\tbConta.txt") #adicionado novo array no arquivo texto
+        [System.Windows.MessageBox]::Show("Conta alterada com sucesso.")
+
+        $formAlterarContabil.Dispose() #fecha a janela
+        . .\rpcMenuContabil.ps1 #volta ao menu
+       
+    }
+})
 
 $listboxFormAlterarConta.DisplayMember = "display"
 

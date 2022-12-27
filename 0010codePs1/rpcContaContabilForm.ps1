@@ -74,13 +74,6 @@ $botaoSalvar.Text = "Gerar relatorio"
 $formContabil.Controls.Add($botaoSalvar)
 
 
-
-#Label salvo
-$labelSalvo = New-Object System.Windows.Forms.Label
-$labelSalvo.Location =  New-Object System.Drawing.Size(130,300)
-$labelSalvo.AutoSize = $true
-$formContabil.Controls.Add($labelSalvo)
-
 $OpenFileDialog = New-Object System.Windows.Forms.SaveFileDialog
 $OpenFileDialog.initialDirectory = $nomePath
 $openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"

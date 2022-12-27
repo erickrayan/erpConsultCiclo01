@@ -102,8 +102,7 @@ $listboxTipoConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao da list
 
 $botaoSalvar.Add_click({
     if ($openFileDialog.ShowDialog() -eq "OK"){
-        $labelSalvo.Text = $OpenFileDialog.FileName #remover essa linha
-        [System.Windows.MessageBox]::Show("Arquivo salvo em: $($OpenFileDialog.FileName)", 'Sucesso') #teste
+        [System.Windows.MessageBox]::Show("(Teste): Arquivo salvo em: $($OpenFileDialog.FileName)", 'Sucesso') #teste
 
     }
     

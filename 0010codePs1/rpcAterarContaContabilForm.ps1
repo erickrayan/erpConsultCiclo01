@@ -81,17 +81,17 @@ $radiobuttonFormAlterarContaAtiva.size = '99,20'
 $radiobuttonFormAlterarContaAtiva.Checked = $true 
 $radiobuttonFormAlterarContaAtiva.Text = "Ativo"
 
-$radiobuttonExibirSomenteAtivas = New-Object System.Windows.Forms.RadioButton
-$radiobuttonExibirSomenteAtivas.Location = '11,20'
-$radiobuttonExibirSomenteAtivas.size = '99,20'
-$radiobuttonExibirSomenteAtivas.Text = "Contas ativas"
-
 $radiobuttonFormAlterarContaInativa = New-Object System.Windows.Forms.RadioButton
 $radiobuttonFormAlterarContaInativa.Location = '110,20'
 $radiobuttonFormAlterarContaInativa.size = '80,20'
 $radiobuttonFormAlterarContaInativa.Checked = $false
 $radiobuttonFormAlterarContaInativa.Text = "Inativo"
 $groupboxFormAlterarStatusConta.Controls.AddRange(@($radiobuttonFormAlterarContaAtiva,$radiobuttonFormAlterarContaInativa))
+
+$radiobuttonExibirSomenteAtivas = New-Object System.Windows.Forms.RadioButton
+$radiobuttonExibirSomenteAtivas.Location = '11,20'
+$radiobuttonExibirSomenteAtivas.size = '99,20'
+$radiobuttonExibirSomenteAtivas.Text = "Contas ativas"
 
 $radiobuttonExibirSomenteInativas = New-Object System.Windows.Forms.RadioButton
 $radiobuttonExibirSomenteInativas.Location = '110,20'
