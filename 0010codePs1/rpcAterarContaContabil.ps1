@@ -33,18 +33,18 @@ $listboxFormAlterarConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao 
     $textboxFormAlterarDescrConta.Enabled =   $true
     $groupboxFormAlterarStatusConta.Enabled = $true
 
-    $digitos = $listboxFormAlterarConta.SelectedItem.codConta.Length
-    $primeiroDigito = $listboxFormAlterarConta.SelectedItem.codConta.Substring(0,1)
-    $labelFormAlterarCodConta.Text = "Codigo da conta com $digitos digitos :"
+    #$digitos = $listboxFormAlterarConta.SelectedItem.codConta.Length
+    #$primeiroDigito = $listboxFormAlterarConta.SelectedItem.codConta.Substring(0,1)
+    #$labelFormAlterarCodConta.Text = "Codigo da conta com $digitos digitos :"
 
-    $textboxFormAlterarCodConta.MaxLength = $digitos #define a capacidade maxima de caracteres da caixa de texto
+    #$textboxFormAlterarCodConta.MaxLength = $digitos #define a capacidade maxima de caracteres da caixa de texto
      
-    if($textboxFormAlterarCodConta.Text.Length -eq 0){ #impossibilitar caixa de texto vazia
-        $textboxFormAlterarCodConta.Text = 1
-    } 
-    else{
-        $textboxFormAlterarCodConta.Text=$textboxFormAlterarCodConta.Text.Remove(0,1).Insert(0, $primeiroDigito)
-    }
+    #if($textboxFormAlterarCodConta.Text.Length -eq 0){ #impossibilitar caixa de texto vazia
+    #    $textboxFormAlterarCodConta.Text = 1
+    #} 
+    #else{
+    #    $textboxFormAlterarCodConta.Text=$textboxFormAlterarCodConta.Text.Remove(0,1).Insert(0, $primeiroDigito)
+    #}
 
     $textboxFormAlterarCodConta.Text=$listboxFormAlterarConta.SelectedItem.codConta
     $textboxFormAlterarDescrConta.Text=$listboxFormAlterarConta.SelectedItem.descrConta
@@ -58,20 +58,6 @@ $listboxFormAlterarConta.add_SelectedIndexChanged({ #ativado ao mudar a selecao 
 })
 
 
-$textboxFormAlterarCodConta.Add_TextChanged({ #evento acionado toda vez que a caixa de texto eh modificada
-
-    $this.Text = $this.Text -replace '\D' #substitui qualquer item nao decimal por vazio
-    $this.Select($this.Text.Length, 0); #coloca o cursor de volta no final do texto
-
-    $primeiroDigito = $listboxFormAlterarConta.SelectedItem.codConta.Substring(0,1)
-    
-    if($this.Text.Length -ne 0){ #se a caixa de texto nao estiver vazia
-            $this.Text=$this.Text.Remove(0,1).Insert(0, $primeiroDigito) #troca o primeiro caracter
-    }
-    else{
-        $this.Text = 1
-    }
-})
 
 $botaoFormAlterarCancelar.Add_Click({
     $formAlterarContabil.Dispose()
@@ -157,15 +143,23 @@ $botaoFormAlterarOk.Add_Click({ #botao salvar
         Set-Content -Value $text -Path ($pathData + "\tbConta.txt") #adicionado novo array no arquivo texto
         [System.Windows.MessageBox]::Show("Conta alterada com sucesso.")
 
-        $formAlterarContabil.Dispose() #fecha a janela
-        . .\rpcMenuContabil.ps1 #volta ao menu
+
+        #limpeza dos campos
+        $listboxFormAlterarConta.SelectedIndex=-1
+        $labelFormAlterarConta.Enabled =          $false
+        $labelFormAlterarCodConta.Enabled =       $false
+        $labelFormAlterarDescrConta.Enabled =     $false
+        $textboxFormAlterarDescrConta.Enabled =   $false
+        $groupboxFormAlterarStatusConta.Enabled = $false
+        $textboxFormAlterarDescrConta.Text=""
+        $textboxFormAlterarCodConta.Text=""
+        
        
     }
 })
 
 $listboxFormAlterarConta.DisplayMember = "display"
-
-
+$radiobuttonExibirSomenteAtivas.checked = $true
 
 
 [void]$formAlterarContabil.ShowDialog()

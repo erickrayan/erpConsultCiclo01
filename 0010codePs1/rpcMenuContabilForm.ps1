@@ -41,7 +41,6 @@ $botaoMenuContabilVoltar = New-Object System.Windows.Forms.Button
 $botaoMenuContabilVoltar.Location = New-Object System.Drawing.Size(210,120)
 $botaoMenuContabilVoltar.Size = New-Object System.Drawing.Size(100,20)
 $botaoMenuContabilVoltar.Text = "Voltar"
-#$botaoFormAlterarCancelar.Add_Click({$formAlterarContabil.Tag = $formAlterarContabil.close()}) 
 $botaoMenuContabilVoltar.Add_Click({
     $menuContabil.Dispose()
     . .\rpcMenuPrincipal.ps1

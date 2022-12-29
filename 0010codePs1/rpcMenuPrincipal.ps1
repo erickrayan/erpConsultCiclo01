@@ -19,8 +19,9 @@ $pathData = $nomePath.Substring(0, $nomePath.lastIndexOf('\')) + $folderData
 
 
 $CCusto.Add_click({
-   # . .\rpcCentroCusto.ps1
-   [System.Windows.MessageBox]::Show("Em construcao")
+    $menu.Dispose()
+    . .\rpcMenuCCusto.ps1
+   
 })
 
 $CContabeis.Add_click({
