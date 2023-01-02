@@ -1,4 +1,4 @@
 sgSurroGate | cdCampoSG | nmTab | vlProximoSG
 0001 | sgSG | tbSG | 3
 0002 | sgConta | tbConta | 10
-0003 | sgCentroCusto | tbCentroCusto | 1
+0003 | sgCentroCusto | tbCentroCusto | 2

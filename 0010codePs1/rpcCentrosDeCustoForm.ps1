@@ -33,8 +33,8 @@ $formCcusto.Controls.Add($labelDescrCcusto)
 
 #Caixa de texto código do centro de custo
 $textboxCodCcusto = New-Object System.Windows.Forms.TextBox
-$textboxCodCcusto.Location = New-Object System.Drawing.Size(103,120)
-$textboxCodCcusto.Size = New-Object System.Drawing.Size(205,20)
+$textboxCodCcusto.Location = New-Object System.Drawing.Size(110,120)
+$textboxCodCcusto.Size = New-Object System.Drawing.Size(198,20)
 $formCcusto.Controls.Add($textboxCodCcusto)
 
 #Caixa de texto descrição de centro de custo

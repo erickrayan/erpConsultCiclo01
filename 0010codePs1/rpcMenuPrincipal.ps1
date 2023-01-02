@@ -32,7 +32,7 @@ $CContabeis.Add_click({
 
 criaArquivo "tbSG.txt"
 criaArquivo "tbConta.txt"
-
+criaArquivo "tbCentroCusto.txt"
 
 
 [void]$menu.ShowDialog()

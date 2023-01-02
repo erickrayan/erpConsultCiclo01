@@ -1,0 +1,2 @@
+sgCentroCusto | cdCentroCusto | dsCentroCusto
+1 | 00010000 | zero um

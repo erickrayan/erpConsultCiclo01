@@ -74,6 +74,7 @@ function CriaArquivo($nmTxt){ #Cria arquivos txt na pasta data, caso nao existam
 
     if ($nmTxt -eq "tbSG.txt")   {$cabecalho="sgSurroGate | cdCampoSG | nmTab | vlProximoSG"}
 elseif ($nmTxt -eq "tbConta.txt"){$cabecalho="sgConta| cdConta | dsConta| stConta"}
+elseif ($nmTxt -eq "tbCentroCusto.txt"){$cabecalho="sgCentroCusto | cdCentroCusto | dsCentroCusto"}
 else {$cabecalho="Erro na chamada da funcao"}
 
 if (-not (Test-Path -path ($pathdata + "\" + $nmTxt) -PathType Leaf)){ #Caso nao exista, arquivo eh criado
