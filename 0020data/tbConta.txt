@@ -8,3 +8,4 @@ sgConta| cdConta | dsConta| stConta
 7 | 242444444 | despesa ativo | 1
 8 | 244444442 | despesa ativo | 1
 9 | 71234567 | caixa despesa ativo | 1
+10 | 71111111 | sete um um um  | 1
